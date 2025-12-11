@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trắc nghiệm ôn thi IT (PC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-bg"></div>
+  <div class="page-noise"></div>
+
+  <div class="app">
+    <header class="app-header">
+      <div class="app-title-wrap">
+        <div class="app-icon">
+          <span>💻</span>
+        </div>
+        <div>
+          <h1>Trắc nghiệm ôn thi IT</h1>
+          <p class="subtitle">
+            Chọn <strong>bộ đề</strong> – chọn <strong>chế độ</strong> – làm bài &nbsp;•&nbsp;
+            Bấm <strong>Chấm điểm</strong> để xem kết quả
+          </p>
+        </div>
+      </div>
+      <div class="app-badge">Bản PC • Mạng • C++ • CSDL</div>
+    </header>
+
+    <!-- Thanh điều khiển -->
+    <section class="card toolbar-card">
+      <div class="toolbar">
+        <div class="toolbar-group toolbar-group-main">
+          <label for="bankSelect">Bộ đề:</label>
+          <select id="bankSelect"></select>
+
+          <label for="modeSelect">Chế độ:</label>
+          <select id="modeSelect">
+            <option value="practice">Luyện tập</option>
+            <option value="exam">Thi thử</option>
+          </select>
+
+          <label for="chapterFilter" class="chapter-label">Chương:</label>
+          <select id="chapterFilter"></select>
+
+          <label class="toggle-label" id="randomModeWrapper">
+            <input type="checkbox" id="randomMode" />
+            20 câu ngẫu nhiên
+          </label>
+
+          <span class="exam-note" id="examNote"></span>
+        </div>
+
+        <div class="toolbar-group toolbar-group-right">
+          <div class="timer" id="timer">
+            ⏱ <span id="timerLabel">Làm bài:</span>
+            <span id="timerDisplay">00:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kết quả -->
+    <section class="card result-section" id="resultSection">
+      <div class="result-box" id="resultBox">
+        <div class="result-header">
+          <div class="result-icon">✅</div>
+          <div>
+            <span class="score" id="scoreText"></span><br />
+            <span class="detail" id="detailText"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Câu hỏi -->
+    <section class="card questions-card">
+      <div class="questions-header">
+        <h2>Danh sách câu hỏi</h2>
+        <p class="questions-subtitle">
+          Luyện tập: chọn chương, có thể bật <strong>20 câu ngẫu nhiên</strong>.<br />
+          Thi thử: hệ thống tự chọn <strong>40 câu</strong> từ toàn bộ bộ đề và giới hạn thời gian.
+        </p>
+      </div>
+      <div class="questions-container" id="questionsContainer"></div>
+    </section>
+
+    <!-- Nút thao tác ở CUỐI trang -->
+    <section class="card actions-bottom">
+      <div class="actions-bottom-inner">
+        <button class="secondary" id="toggleAnswersBtn">Hiện đáp án</button>
+        <button class="secondary" id="resetBtn">🔁 Làm lại</button>
+        <button class="primary" id="checkBtn">🧠 Chấm điểm</button>
+      </div>
+    </section>
+
+    <!-- Lịch sử làm bài -->
+    <section class="card history-box">
+      <div class="history-title-row">
+        <div>
+          <div class="history-title">Lịch sử làm bài</div>
+          <div class="history-note">
+            Mỗi lần bấm <strong>“Chấm điểm”</strong> sẽ lưu 1 dòng bên dưới (lưu tạm trong trình duyệt).
+          </div>
+        </div>
+      </div>
+      <div class="history-table-wrapper">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Thời điểm</th>
+              <th>Bộ đề / Chương / Chế độ</th>
+              <th>Kết quả</th>
+              <th>Điểm</th>
+              <th>Xếp loại</th>
+              <th>Thời gian làm</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody">
+            <!-- các lần làm bài sẽ được thêm ở đây -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      Gợi ý: Học từng chương ở chế độ <strong>Luyện tập</strong>, sau đó chuyển sang
+      <strong>Thi thử</strong> để kiểm tra kiến thức tổng hợp.
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
